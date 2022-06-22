@@ -145,7 +145,7 @@ Piece.prototype.rotate = function() {
     let kick = 0;
 
     if (this.collision(0, 0, nextPattern)) {
-        if (this.x > col/2) {
+        if (this.x > col / 2) {
             // it's the right wall
             kick = -1; // we need to move the piece to the left
         } else { 
@@ -166,6 +166,7 @@ Piece.prototype.rotate = function() {
 }
 
 let score = 0;
+
 Piece.prototype.lock = function() {
     for (r = 0; r < this.activeTetromino.length; r++) {
         for (c = 0; c < this.activeTetromino.length; c++) {
@@ -187,6 +188,7 @@ Piece.prototype.lock = function() {
     // remove full rows
     for (r = 0; r < row; r++) {
         let isRowFull = true;
+
         for (c = 0; c < col; c++) {
             isRowFull = isRowFull && (board[r][c] != vacant);    
         }
@@ -268,6 +270,7 @@ function control(event) {
 
 let dropStart = Date.now();
 let gameOver = false;
+
 function drop() {
     let now = Date.now();
     let delta = now - dropStart;
